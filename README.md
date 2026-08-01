@@ -24,7 +24,7 @@ Before clustering, an annotated correlation matrix on the standardized features 
 
 ![Correlation matrix heatmap](images/02_correlation_heatmap.png)
 
-A diverging colormap (`coolwarm`) centered at zero is the deliberate choice here — correlation is a signed quantity, so a sequential palette would make −0.8 and 0.0 look equally unremarkable. Centering makes sign readable at a glance and direction distinguishable from magnitude. The tenure cluster (`YearsAtCompany` / `YearsWithCurrManager` / `YearsInCurrentRole`, 0.71–0.77) is immediately visible as a warm block, sitting just under the 0.8 threshold and documented as a watch item rather than acted on.
+The tenure cluster (`YearsAtCompany` / `YearsWithCurrManager` / `YearsInCurrentRole`, 0.71–0.77) is immediately visible, sitting just under the 0.8 threshold and documented as a watch item rather than acted on.
 
 **Technique:** annotated heatmaps, diverging colormaps, `center=0` for signed data.
 
