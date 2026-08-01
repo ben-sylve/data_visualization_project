@@ -1,9 +1,5 @@
 # Visualizing Employee Attrition at IBM
 
-A machine learning case study built around **visual model diagnostics** — using matplotlib and seaborn to explore, validate, and communicate an employee attrition analysis at every stage of the workflow.
-
-The premise of this project is that in an analysis with 35 features and no clean separation between classes, the visualizations are not decoration on top of the results. They *are* the reasoning. Cluster count, linkage method, and final model selection were each decided by reading a chart, and the charts below are presented in the order those decisions were made.
-
 **Dataset:** [IBM HR Analytics Employee Attrition & Performance](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset) — 1,470 employees, 35 columns. Synthetic data created by IBM data scientists.
 
 **Stack:** matplotlib, seaborn, pandas plotting (`parallel_coordinates`), SciPy (dendrograms)
