@@ -36,8 +36,6 @@ Hierarchical clustering on 1,470 employees produces a dendrogram far too dense t
 
 ![Ward linkage dendrogram](images/03_dendrogram_ward.png)
 
-The function was then run across **all seven linkage methods** with per-method color thresholds, since each operates on a different distance scale. Comparing the outputs is what eliminated four of them:
-
 ![Single linkage dendrogram](images/03b_dendrogram_single.png)
 
 Single linkage (above) shows the textbook chaining failure — a long spine with individual employees peeling off, no meaningful group structure. Centroid and Median failed the same way. Ward and Complete were the only two producing balanced, cleanly nested branches.
@@ -48,11 +46,9 @@ Single linkage (above) shows the textbook chaining failure — a long spine with
 
 ## 4. Validation — Clustered Heatmap
 
-With the field narrowed to Ward, a `clustermap` renders the actual employee-by-feature matrix with the dendrogram attached to the margin.
-
 ![Ward linkage clustermap](images/04_clustermap_ward.png)
 
-This is the figure that settled the linkage choice. Silhouette scores were nearly tied and slightly favored Complete (0.1210 vs. Ward's 0.1153), but the clustermap shows Ward producing visibly cleaner horizontal banding across age, tenure, and income — evidence the score alone did not capture. Choosing the method on visual separation over a marginally better metric is the substantive judgment call in the project.
+This is the figure that settled the linkage choice. Silhouette scores were nearly tied and slightly favored Complete (0.1210 vs. Ward's 0.1153), but the clustermap shows Ward producing visibly cleaner horizontal banding across age, tenure, and income. Choosing the method on visual separation over a marginally better metric is the substantive judgment call in the project.
 
 **Technique:** `sns.clustermap`, cluster-labeled axes, reading structure the summary statistic misses.
 
@@ -60,7 +56,7 @@ This is the figure that settled the linkage choice. Silhouette scores were nearl
 
 ## 5. Interpretation — Centroid Heatmap and Parallel Coordinates
 
-Two views of the same three centroids, chosen because each answers a different question.
+Two views of the same three centroids.
 
 ![K-Means centroid heatmap](images/07_kmeans_centroid_heatmap.png)
 
@@ -92,7 +88,7 @@ Grouped bars compare Ward against K-Means cluster membership side by side:
 
 ![Cluster member counts by method](images/09_cluster_counts.png)
 
-Near-identical bars across two independent algorithms is the cross-validation result, delivered in a form that needs no explanation.
+Near-identical bars across two independent algorithms.
 
 Stacked bars then convert cluster membership into the business finding:
 
@@ -119,7 +115,7 @@ Two logistic regression models were trained: a standard 60/40 split, and one on 
 
 ![ROC curve — oversampled model](images/13_roc_oversampled.png)
 
-The ROC curve is what justifies selecting the *less accurate* model. Both models have effectively equivalent AUC (0.84 vs 0.81), meaning their underlying ranking ability is comparable — the accuracy gap is a threshold artifact, not a quality difference. The steep initial rise confirms the oversampled model captures true positives at low false-positive cost. Given that a missed flight risk costs more than a false alarm, the model that nearly doubles recall wins, and the curve is the evidence.
+Both models have effectively equivalent AUC (0.84 vs 0.81), meaning their underlying ranking ability is comparable. The steep initial rise confirms the oversampled model captures true positives at low false-positive cost. Given that a missed flight risk costs more than a false alarm, the model that nearly doubles recall wins, and the curve is the evidence.
 
 **Technique:** ROC/AUC plotting, using curve shape to separate ranking quality from threshold effects.
 
@@ -131,7 +127,7 @@ The ROC curve is what justifies selecting the *less accurate* model. Both models
 
 ![At-risk employees by cluster](images/15_at_risk_by_cluster.png)
 
-Final output for a business audience: of 1,233 currently active employees, 285 (23%) exceed the 0.5 risk threshold — and the breakdown by cluster shows the same Junior concentration the clustering track found independently. Two analytical approaches converging on one conclusion, shown rather than argued.
+Final output for a business audience: of 1,233 currently active employees, 285 (23%) exceed the 0.5 risk threshold — and the breakdown by cluster shows the same Junior concentration the clustering track found independently. Two analytical approaches converging on one conclusion.
 
 ---
 
