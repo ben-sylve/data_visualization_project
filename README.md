@@ -139,35 +139,10 @@ Final output for a business audience: of 1,233 currently active employees, 285 (
 
 ---
 
-## Visualization Skills Demonstrated
-
-| Skill | Where |
-|---|---|
-| Subplot grids and small multiples | §1, §3 |
-| Reusable parameterized plotting functions | §3 |
-| Truncation strategies for high-cardinality data | §3 |
-| Diverging colormaps and `center=0` for signed values | §2, §5 |
-| Annotated heatmaps and clustermaps | §2, §4, §5 |
-| Parallel coordinates for multivariate comparison | §5 |
-| Grouped vs. stacked bar selection | §7 |
-| Rate-and-volume pairing to avoid misleading conclusions | §7 |
-| ROC/AUC curve interpretation | §8 |
-| Charts as decision evidence, not illustration | throughout |
-
 ## Repository Contents
 
 - `Attrition_at_IBM.ipynb` — main analysis notebook
-- `WA_Fn-UseC_-HR-Employee-Attrition.csv` — source dataset
 - `images/` — exported figures
-
-## Running the Analysis
-
-```bash
-pip install numpy pandas matplotlib seaborn scikit-learn scipy statsmodels dmba
-jupyter notebook Attrition_at_IBM.ipynb
-```
-
-Run cells sequentially to reproduce every figure. Random seeds are fixed, so output is deterministic.
 
 ## References
 
